@@ -1,0 +1,173 @@
+openapi: 3.1.0
+info:
+  title: OpenCTS API
+  version: "v1"
+  description: |
+    Open Compliance Telemetry Standard (OpenCTS) API Specification — Version 1.0
+
+    OpenCTS provides a unified, lightweight, and flexible standard for exchanging compliance telemetry
+    data between SaaS products, auditors, and automated governance systems.
+
+    It defines how systems report and retrieve compliance posture, evidence, and framework alignment.
+
+license:
+  name: Apache 2.0
+  url: https://www.apache.org/licenses/LICENSE-2.0.html
+contact:
+  name: OpenCTS Project
+  url: https://opencts.io
+  email: maintainers@opencts.io
+
+servers:
+  - url: https://api.opencts.io/v1
+    description: Production server
+  - url: https://staging.opencts.io/v1
+    description: Staging server
+
+paths:
+  /cts:
+    post:
+      summary: Submit compliance telemetry
+      description: Submit compliance telemetry data for a SaaS system, service, or environment.
+      operationId: submitCTS
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CTS"
+          application/yaml:
+            schema:
+              $ref: "#/components/schemas/CTS"
+      responses:
+        "202":
+          description: Telemetry accepted for processing
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CTSResponse"
+        "400":
+          description: Invalid CTS payload
+        "500":
+          description: Internal processing error
+
+    get:
+      summary: Retrieve compliance telemetry
+      description: Retrieve the latest compliance telemetry summary for a given system or service.
+      operationId: getCTS
+      parameters:
+        - name: system_id
+          in: query
+          required: false
+          description: Optional system identifier to filter telemetry
+          schema:
+            type: string
+        - name: framework
+          in: query
+          required: false
+          description: Filter telemetry by compliance framework
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Current compliance telemetry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CTS"
+        "404":
+          description: No telemetry found for specified criteria
+
+components:
+  schemas:
+    CTS:
+      type: object
+      required: [version, timestamp, compliance_posture, frameworks]
+      properties:
+        version:
+          type: string
+          example: "v1"
+          description: Schema version
+        timestamp:
+          type: string
+          format: date-time
+          example: "2025-10-16T15:30:00Z"
+          description: Time telemetry was generated
+        compliance_posture:
+          type: string
+          enum: [compliant, partially_compliant, non_compliant, unknown]
+          description: Overall compliance state
+          example: "partially_compliant"
+        frameworks:
+          type: array
+          description: List of compliance frameworks evaluated
+          items:
+            type: object
+            required: [name, status, score]
+            properties:
+              name:
+                type: string
+                example: "SOC 2"
+              status:
+                type: string
+                enum: [compliant, partial, non_compliant]
+                example: "partial"
+              score:
+                type: number
+                minimum: 0
+                maximum: 1
+                example: 0.75
+              controls:
+                type: array
+                items:
+                  type: object
+                  required: [id, status]
+                  properties:
+                    id:
+                      type: string
+                      example: "CC1.1"
+                    title:
+                      type: string
+                      example: "The entity demonstrates commitment to integrity and ethical values."
+                    status:
+                      type: string
+                      enum: [compliant, partial, non_compliant]
+                      example: "compliant"
+                    evidence_ref:
+                      type: string
+                      example: "https://storage.opencts.io/evidence/cc11-report.pdf"
+        evidence_refs:
+          type: array
+          items:
+            type: string
+            example: "https://storage.opencts.io/evidence/system-diagram.png"
+        extensions:
+          type: object
+          additionalProperties: true
+          description: Vendor or tool-specific metadata
+          example:
+            vendor: "Lowerplane"
+            environment: "staging"
+
+    CTSResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique telemetry identifier
+          example: "cts-20251016-0001"
+        status:
+          type: string
+          enum: [accepted, rejected]
+          example: "accepted"
+        message:
+          type: string
+          example: "Telemetry accepted for processing."
+        received_at:
+          type: string
+          format: date-time
+          example: "2025-10-16T15:30:01Z"
+
+tags:
+  - name: Compliance
+    description: Submit or retrieve compliance telemetry
