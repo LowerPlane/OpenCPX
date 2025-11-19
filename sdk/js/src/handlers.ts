@@ -27,9 +27,10 @@ export function createExpressHandler(provider: PostureProvider) {
 export function createExpressMiddleware(provider: PostureProvider) {
   const handler = createExpressHandler(provider);
 
-  return (req: any, res: any, next: any) => {
+  return (req: any, res: any, next: any): void => {
     if (req.path === '/cpx' && req.method === 'GET') {
-      return handler(req, res);
+      handler(req, res);
+      return;
     }
     next();
   };
