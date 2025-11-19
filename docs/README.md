@@ -2,6 +2,10 @@
 
 Welcome to the OpenCPX documentation. Here you'll find guides, references, and resources for implementing and using OpenCPX.
 
+## Background
+
+- **[Why LowerPlane Created OpenCPX](why-lowerplane-created-opencpx.md)** - The origin story and motivation behind the standard
+
 ## Getting Started
 
 - **[Quickstart Guide](QUICKSTART.md)** - Get your first endpoint running in 5 minutes
