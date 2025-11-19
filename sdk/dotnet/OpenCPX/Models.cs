@@ -4,46 +4,128 @@ using System.Text.Json.Serialization;
 namespace OpenCPX;
 
 /// <summary>
+/// Custom converter for CompliancePosture enum to handle snake_case serialization.
+/// </summary>
+public class CompliancePostureConverter : JsonConverter<CompliancePosture>
+{
+    public override CompliancePosture Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var value = reader.GetString();
+        return value switch
+        {
+            "compliant" => CompliancePosture.Compliant,
+            "partially_compliant" => CompliancePosture.PartiallyCompliant,
+            "non_compliant" => CompliancePosture.NonCompliant,
+            "unknown" => CompliancePosture.Unknown,
+            _ => throw new JsonException($"Unknown CompliancePosture value: {value}")
+        };
+    }
+
+    public override void Write(Utf8JsonWriter writer, CompliancePosture value, JsonSerializerOptions options)
+    {
+        var stringValue = value switch
+        {
+            CompliancePosture.Compliant => "compliant",
+            CompliancePosture.PartiallyCompliant => "partially_compliant",
+            CompliancePosture.NonCompliant => "non_compliant",
+            CompliancePosture.Unknown => "unknown",
+            _ => throw new JsonException($"Unknown CompliancePosture value: {value}")
+        };
+        writer.WriteStringValue(stringValue);
+    }
+}
+
+/// <summary>
+/// Custom converter for FrameworkStatus enum.
+/// </summary>
+public class FrameworkStatusConverter : JsonConverter<FrameworkStatus>
+{
+    public override FrameworkStatus Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var value = reader.GetString();
+        return value switch
+        {
+            "compliant" => FrameworkStatus.Compliant,
+            "partial" => FrameworkStatus.Partial,
+            "non_compliant" => FrameworkStatus.NonCompliant,
+            _ => throw new JsonException($"Unknown FrameworkStatus value: {value}")
+        };
+    }
+
+    public override void Write(Utf8JsonWriter writer, FrameworkStatus value, JsonSerializerOptions options)
+    {
+        var stringValue = value switch
+        {
+            FrameworkStatus.Compliant => "compliant",
+            FrameworkStatus.Partial => "partial",
+            FrameworkStatus.NonCompliant => "non_compliant",
+            _ => throw new JsonException($"Unknown FrameworkStatus value: {value}")
+        };
+        writer.WriteStringValue(stringValue);
+    }
+}
+
+/// <summary>
+/// Custom converter for ControlStatus enum.
+/// </summary>
+public class ControlStatusConverter : JsonConverter<ControlStatus>
+{
+    public override ControlStatus Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var value = reader.GetString();
+        return value switch
+        {
+            "compliant" => ControlStatus.Compliant,
+            "partial" => ControlStatus.Partial,
+            "non_compliant" => ControlStatus.NonCompliant,
+            _ => throw new JsonException($"Unknown ControlStatus value: {value}")
+        };
+    }
+
+    public override void Write(Utf8JsonWriter writer, ControlStatus value, JsonSerializerOptions options)
+    {
+        var stringValue = value switch
+        {
+            ControlStatus.Compliant => "compliant",
+            ControlStatus.Partial => "partial",
+            ControlStatus.NonCompliant => "non_compliant",
+            _ => throw new JsonException($"Unknown ControlStatus value: {value}")
+        };
+        writer.WriteStringValue(stringValue);
+    }
+}
+
+/// <summary>
 /// Overall compliance status.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
+[JsonConverter(typeof(CompliancePostureConverter))]
 public enum CompliancePosture
 {
-    [JsonPropertyName("compliant")]
     Compliant,
-    [JsonPropertyName("partially_compliant")]
     PartiallyCompliant,
-    [JsonPropertyName("non_compliant")]
     NonCompliant,
-    [JsonPropertyName("unknown")]
     Unknown
 }
 
 /// <summary>
 /// Compliance state for a framework.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
+[JsonConverter(typeof(FrameworkStatusConverter))]
 public enum FrameworkStatus
 {
-    [JsonPropertyName("compliant")]
     Compliant,
-    [JsonPropertyName("partial")]
     Partial,
-    [JsonPropertyName("non_compliant")]
     NonCompliant
 }
 
 /// <summary>
 /// Compliance state for a control.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
+[JsonConverter(typeof(ControlStatusConverter))]
 public enum ControlStatus
 {
-    [JsonPropertyName("compliant")]
     Compliant,
-    [JsonPropertyName("partial")]
     Partial,
-    [JsonPropertyName("non_compliant")]
     NonCompliant
 }
 
@@ -293,7 +375,6 @@ public class Posture
     {
         return new JsonSerializerOptions
         {
-            PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
     }
