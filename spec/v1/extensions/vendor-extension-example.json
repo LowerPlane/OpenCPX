@@ -1,1 +1,110 @@
-{ "vendor": "example", "custom_field": "value" }
+{
+  "$schema": "../cpx-schema.json",
+  "version": "v1",
+  "timestamp": "2025-01-15T12:00:00Z",
+  "compliance_posture": "compliant",
+
+  "x-acme-tenant-id": "tenant-abc123",
+  "x-acme-environment": "production",
+  "x-acme-data-residency": "us-east-1",
+  "x-acme-last-sync": "2025-01-15T11:55:00Z",
+
+  "frameworks": [
+    {
+      "name": "SOC2",
+      "status": "compliant",
+      "score": 1.0,
+      "x-acme-audit-firm": "Ernst & Young",
+      "x-acme-report-type": "Type II",
+      "x-acme-audit-period-start": "2024-01-01",
+      "x-acme-audit-period-end": "2024-12-31",
+      "x-acme-report-issue-date": "2025-01-10",
+      "x-acme-next-audit-date": "2025-12-15",
+      "controls": [
+        {
+          "id": "CC6.1",
+          "title": "Logical and Physical Access Controls",
+          "status": "compliant",
+          "x-acme-test-frequency": "continuous",
+          "x-acme-automation-level": "full",
+          "x-acme-last-tested": "2025-01-14T08:00:00Z",
+          "x-acme-test-result": {
+            "passed": 127,
+            "failed": 0,
+            "not_applicable": 3
+          },
+          "x-acme-controls-owner": "security-team@acme.com",
+          "evidence_refs": [
+            {
+              "type": "presigned_url",
+              "url": "https://evidence.acme.com/soc2/cc6.1/iam-report.pdf?sig=abc123",
+              "expires": "2025-01-16T12:00:00Z",
+              "hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "x-acme-classification": "confidential",
+              "x-acme-generated-by": "automated-scan",
+              "x-acme-retention-days": 365
+            }
+          ]
+        },
+        {
+          "id": "CC7.2",
+          "title": "Security Event Monitoring",
+          "status": "compliant",
+          "x-acme-test-frequency": "continuous",
+          "x-acme-automation-level": "full",
+          "x-acme-last-tested": "2025-01-14T08:00:00Z",
+          "x-acme-siem-integration": "splunk",
+          "x-acme-alert-channels": ["pagerduty", "slack"],
+          "x-acme-mean-time-to-detect": "PT5M",
+          "evidence_refs": [
+            {
+              "type": "presigned_url",
+              "url": "https://evidence.acme.com/soc2/cc7.2/siem-config.json?sig=def456",
+              "expires": "2025-01-16T12:00:00Z",
+              "hash": "sha256:a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456",
+              "x-acme-classification": "internal",
+              "x-acme-generated-by": "manual-export"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ISO27001",
+      "status": "compliant",
+      "score": 0.98,
+      "x-acme-certification-body": "BSI Group",
+      "x-acme-certificate-number": "IS 123456",
+      "x-acme-certification-date": "2024-06-15",
+      "x-acme-expiry-date": "2027-06-14",
+      "x-acme-surveillance-audits": [
+        "2025-06-01",
+        "2026-06-01"
+      ]
+    }
+  ],
+
+  "x-acme-risk-summary": {
+    "overall_score": 15,
+    "level": "low",
+    "open_findings": 2,
+    "critical": 0,
+    "high": 0,
+    "medium": 1,
+    "low": 1
+  },
+
+  "x-acme-integrations": {
+    "grc_platform": "ServiceNow GRC",
+    "identity_provider": "Okta",
+    "cloud_providers": ["AWS", "GCP"],
+    "siem": "Splunk",
+    "vulnerability_scanner": "Qualys"
+  },
+
+  "x-acme-contact": {
+    "security_team": "security@acme.com",
+    "compliance_team": "compliance@acme.com",
+    "trust_portal": "https://trust.acme.com"
+  }
+}
