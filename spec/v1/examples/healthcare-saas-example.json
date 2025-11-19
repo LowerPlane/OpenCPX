@@ -1,0 +1,255 @@
+{
+  "version": "v1",
+  "timestamp": "2024-01-15T09:00:00Z",
+  "compliance_posture": "partially_compliant",
+  "organization": {
+    "name": "MedCloud Health",
+    "domain": "medcloud.health",
+    "contact": "compliance@medcloud.health",
+    "industry": "Healthcare Technology"
+  },
+  "frameworks": [
+    {
+      "name": "HIPAA",
+      "version": "2013 Omnibus Rule",
+      "status": "compliant",
+      "score": 1.0,
+      "last_assessment": "2024-01-05",
+      "assessor": "HealthSec Consulting",
+      "controls": [
+        {
+          "id": "164.308(a)(1)",
+          "title": "Security Management Process",
+          "category": "Administrative Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/risk-assessment-2024.pdf",
+            "https://evidence.medcloud.health/security-policies-v5.pdf"
+          ],
+          "implementation_notes": "Annual risk assessment completed Jan 2024. All identified risks have mitigation plans."
+        },
+        {
+          "id": "164.308(a)(3)",
+          "title": "Workforce Security",
+          "category": "Administrative Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/background-check-policy.pdf",
+            "https://evidence.medcloud.health/termination-procedures.pdf",
+            "https://evidence.medcloud.health/access-review-logs.json"
+          ]
+        },
+        {
+          "id": "164.308(a)(4)",
+          "title": "Information Access Management",
+          "category": "Administrative Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/rbac-matrix-phi.json",
+            "https://evidence.medcloud.health/access-authorization-workflow.pdf"
+          ]
+        },
+        {
+          "id": "164.308(a)(5)",
+          "title": "Security Awareness and Training",
+          "category": "Administrative Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/hipaa-training-completion-2024.csv",
+            "https://evidence.medcloud.health/phishing-simulation-results.json"
+          ],
+          "implementation_notes": "100% workforce completion of annual HIPAA training. Quarterly phishing simulations with 3% click rate."
+        },
+        {
+          "id": "164.310(a)(1)",
+          "title": "Facility Access Controls",
+          "category": "Physical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/datacenter-soc2-aws.pdf",
+            "https://evidence.medcloud.health/office-access-policy.pdf"
+          ],
+          "implementation_notes": "All PHI processing in AWS us-east-1 and us-west-2 (HIPAA-eligible regions). No on-premise PHI storage."
+        },
+        {
+          "id": "164.312(a)(1)",
+          "title": "Access Control",
+          "category": "Technical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/unique-user-id-policy.pdf",
+            "https://evidence.medcloud.health/session-timeout-config.json",
+            "https://evidence.medcloud.health/encryption-config.json"
+          ]
+        },
+        {
+          "id": "164.312(b)",
+          "title": "Audit Controls",
+          "category": "Technical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/audit-log-policy.pdf",
+            "https://evidence.medcloud.health/cloudtrail-config.json",
+            "https://evidence.medcloud.health/phi-access-logs-sample.json"
+          ],
+          "implementation_notes": "All PHI access logged to immutable S3 bucket with 7-year retention. Real-time alerts for anomalous access patterns."
+        },
+        {
+          "id": "164.312(c)(1)",
+          "title": "Integrity Controls",
+          "category": "Technical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/data-validation-procedures.pdf",
+            "https://evidence.medcloud.health/database-integrity-config.json"
+          ]
+        },
+        {
+          "id": "164.312(d)",
+          "title": "Person or Entity Authentication",
+          "category": "Technical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/mfa-enforcement-config.json",
+            "https://evidence.medcloud.health/password-policy.pdf"
+          ],
+          "implementation_notes": "MFA required for all users accessing PHI. FIDO2 hardware keys for administrative access."
+        },
+        {
+          "id": "164.312(e)(1)",
+          "title": "Transmission Security",
+          "category": "Technical Safeguards",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/tls-config.json",
+            "https://evidence.medcloud.health/vpn-policy.pdf",
+            "https://evidence.medcloud.health/ssl-scan-results.pdf"
+          ],
+          "implementation_notes": "TLS 1.3 enforced for all connections. All APIs require mutual TLS for PHI endpoints."
+        },
+        {
+          "id": "164.314(a)",
+          "title": "Business Associate Contracts",
+          "category": "Organizational Requirements",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/baa-inventory.json",
+            "https://evidence.medcloud.health/vendor-risk-assessments.zip"
+          ],
+          "implementation_notes": "BAAs in place with all 23 subcontractors handling PHI. Annual vendor security assessments."
+        }
+      ]
+    },
+    {
+      "name": "SOC2",
+      "version": "Type II",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2023-11-30",
+      "auditor": "AICPA Certified Auditors",
+      "report_ref": "https://evidence.medcloud.health/soc2-type2-2023.pdf",
+      "controls": [
+        {
+          "id": "CC6.1",
+          "title": "Logical and Physical Access Controls",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/iam-policies.json",
+            "https://evidence.medcloud.health/access-review-2024-q1.pdf"
+          ]
+        },
+        {
+          "id": "CC6.7",
+          "title": "Restricts the Transmission of Information",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/data-classification-policy.pdf",
+            "https://evidence.medcloud.health/dlp-config.json"
+          ]
+        },
+        {
+          "id": "CC7.2",
+          "title": "Monitors System Components",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/siem-architecture.pdf",
+            "https://evidence.medcloud.health/alert-runbooks.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HITRUST",
+      "version": "CSF v11",
+      "status": "partial",
+      "score": 0.78,
+      "last_assessment": "2023-10-15",
+      "assessor": "HITRUST Authorized Assessor",
+      "controls": [
+        {
+          "id": "01.a",
+          "title": "Access Control Policy",
+          "status": "compliant",
+          "maturity_level": 4,
+          "evidence_refs": [
+            "https://evidence.medcloud.health/access-control-policy.pdf"
+          ]
+        },
+        {
+          "id": "06.d",
+          "title": "Data Protection and Privacy",
+          "status": "compliant",
+          "maturity_level": 4,
+          "evidence_refs": [
+            "https://evidence.medcloud.health/privacy-policy.pdf",
+            "https://evidence.medcloud.health/data-handling-procedures.pdf"
+          ]
+        },
+        {
+          "id": "09.m",
+          "title": "Network Controls",
+          "status": "partial",
+          "maturity_level": 3,
+          "reason": "Network segmentation improvements in progress",
+          "remediation_date": "2024-04-01",
+          "evidence_refs": [
+            "https://evidence.medcloud.health/network-diagram.pdf"
+          ]
+        }
+      ]
+    }
+  ],
+  "control_mappings": {
+    "HIPAA:164.312(a)(1)": ["SOC2:CC6.1", "HITRUST:01.a"],
+    "HIPAA:164.312(e)(1)": ["SOC2:CC6.7"],
+    "HIPAA:164.312(b)": ["SOC2:CC7.2"]
+  },
+  "evidence_refs": [
+    {
+      "type": "presigned_url",
+      "description": "HIPAA compliance evidence package",
+      "url": "https://s3.amazonaws.com/medcloud-evidence/hipaa-2024.zip?...",
+      "expires": "2024-01-22T00:00:00Z",
+      "hash": "sha256:abc123...",
+      "size_bytes": 104857600
+    }
+  ],
+  "extensions": {
+    "medcloud": {
+      "phi_data_types": ["demographics", "diagnoses", "medications", "lab_results"],
+      "patient_count": 2500000,
+      "covered_entity_customers": 150,
+      "data_residency": ["us-east-1", "us-west-2"],
+      "encryption": {
+        "at_rest": "AES-256",
+        "in_transit": "TLS 1.3",
+        "key_management": "AWS KMS with customer-managed keys"
+      },
+      "breach_history": {
+        "last_breach": null,
+        "breaches_last_3_years": 0
+      }
+    }
+  },
+  "_comment": "This example demonstrates a healthcare SaaS with HIPAA as the primary framework, showing detailed control-level compliance with implementation notes. The control_mappings field shows how HIPAA controls map to SOC2 and HITRUST, reducing redundant auditing. Note the HITRUST partial status with specific maturity levels - this transparency helps customers understand exactly where the vendor stands."
+}

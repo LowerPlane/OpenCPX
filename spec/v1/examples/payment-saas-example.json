@@ -1,0 +1,170 @@
+{
+  "version": "v1",
+  "timestamp": "2024-01-15T14:30:00Z",
+  "compliance_posture": "partially_compliant",
+  "organization": {
+    "name": "PayFlow Inc.",
+    "domain": "payflow.io",
+    "contact": "security@payflow.io"
+  },
+  "frameworks": [
+    {
+      "name": "PCI-DSS",
+      "version": "4.0",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2024-01-10",
+      "auditor": "QSA Security Partners",
+      "report_ref": "https://evidence.payflow.io/pci-dss-aoc-2024.pdf",
+      "controls": [
+        {
+          "id": "1.1",
+          "title": "Install and maintain network security controls",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/network-diagram-2024.pdf",
+            "https://evidence.payflow.io/firewall-rules-export.json"
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "Protect stored cardholder data",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/encryption-policy.pdf",
+            "https://evidence.payflow.io/hsm-config.json"
+          ]
+        },
+        {
+          "id": "8.3",
+          "title": "Strong authentication for users and administrators",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/mfa-enforcement.json"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SOC2",
+      "version": "Type II",
+      "status": "partial",
+      "score": 0.85,
+      "last_audit": "2023-12-01",
+      "auditor": "BigFour Audit LLP",
+      "report_ref": "https://evidence.payflow.io/soc2-type2-2023.pdf",
+      "controls": [
+        {
+          "id": "CC1.1",
+          "title": "COSO Principle 1: Demonstrates Commitment to Integrity",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/code-of-conduct.pdf",
+            "https://evidence.payflow.io/ethics-training-completion.csv"
+          ]
+        },
+        {
+          "id": "CC6.1",
+          "title": "Logical and Physical Access Controls",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/iam-policy.json",
+            "https://evidence.payflow.io/access-review-2024-q1.pdf"
+          ]
+        },
+        {
+          "id": "CC6.6",
+          "title": "Restricts Logical Access",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/rbac-matrix.json",
+            "https://evidence.payflow.io/least-privilege-policy.pdf"
+          ]
+        },
+        {
+          "id": "CC7.2",
+          "title": "Monitors System Components for Anomalies",
+          "status": "partial",
+          "reason": "SIEM integration in progress, expected completion Q2 2024",
+          "evidence_refs": [
+            "https://evidence.payflow.io/monitoring-architecture.pdf"
+          ]
+        },
+        {
+          "id": "CC8.1",
+          "title": "Changes to Infrastructure and Software Are Authorized",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/change-management-policy.pdf",
+            "https://evidence.payflow.io/pr-approval-logs.json"
+          ]
+        },
+        {
+          "id": "CC9.2",
+          "title": "Vendor Risk Management",
+          "status": "non_compliant",
+          "reason": "Annual vendor assessments not completed for 3 critical vendors",
+          "remediation_date": "2024-03-01",
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "name": "ISO27001",
+      "version": "2022",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2023-11-15",
+      "auditor": "ISO Certifiers International",
+      "certificate_ref": "https://evidence.payflow.io/iso27001-cert-2023.pdf",
+      "controls": [
+        {
+          "id": "A.5.1",
+          "title": "Policies for information security",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/infosec-policy-v3.pdf"
+          ]
+        },
+        {
+          "id": "A.8.2",
+          "title": "Privileged access rights",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/privileged-access-policy.pdf",
+            "https://evidence.payflow.io/pam-config.json"
+          ]
+        },
+        {
+          "id": "A.8.12",
+          "title": "Data leakage prevention",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.payflow.io/dlp-policy.pdf",
+            "https://evidence.payflow.io/dlp-alerts-2024.json"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence_refs": [
+    {
+      "type": "presigned_url",
+      "description": "Complete evidence package for Q1 2024 audits",
+      "url": "https://s3.amazonaws.com/payflow-evidence/q1-2024-complete.zip?AWSAccessKeyId=...&Signature=...&Expires=1706054400",
+      "expires": "2024-01-24T00:00:00Z",
+      "hash": "sha256:9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "size_bytes": 52428800
+    }
+  ],
+  "extensions": {
+    "payflow": {
+      "merchant_count": 15000,
+      "transaction_volume_monthly": "2.3B USD",
+      "data_residency": ["us-east-1", "eu-west-1"],
+      "encryption_standard": "AES-256-GCM",
+      "key_management": "AWS CloudHSM"
+    }
+  },
+  "_comment": "This example shows a realistic payment SaaS with multiple compliance frameworks. Note how SOC2 has two non-compliant controls with reasons and remediation dates. This transparency helps auditors understand the current state without back-and-forth emails."
+}

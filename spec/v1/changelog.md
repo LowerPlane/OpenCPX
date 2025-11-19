@@ -1,3 +1,3 @@
-# OpenCTS v1 Changelog
+# OpenCPX v1 Changelog
 
 - Initial draft release.

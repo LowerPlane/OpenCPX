@@ -1,0 +1,370 @@
+{
+  "version": "v1",
+  "timestamp": "2024-01-15T16:45:00Z",
+  "compliance_posture": "compliant",
+  "organization": {
+    "name": "ConnectHub",
+    "domain": "connecthub.io",
+    "contact": "security@connecthub.io",
+    "industry": "Integration Platform as a Service (iPaaS)"
+  },
+  "frameworks": [
+    {
+      "name": "SOC2",
+      "version": "Type II",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2024-01-01",
+      "auditor": "TechAudit Partners",
+      "report_ref": "https://trust.connecthub.io/reports/soc2-type2-2024.pdf",
+      "trust_service_criteria": ["Security", "Availability", "Confidentiality"],
+      "controls": [
+        {
+          "id": "CC2.1",
+          "title": "Obtaining or Generating Relevant Information",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/api-documentation.pdf",
+            "https://evidence.connecthub.io/customer-communication-logs.json"
+          ]
+        },
+        {
+          "id": "CC5.1",
+          "title": "Selects and Develops Control Activities",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/control-framework.pdf",
+            "https://evidence.connecthub.io/risk-assessment-2024.pdf"
+          ]
+        },
+        {
+          "id": "CC6.1",
+          "title": "Logical and Physical Access Controls",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/iam-architecture.pdf",
+            "https://evidence.connecthub.io/access-reviews-q4-2023.json"
+          ]
+        },
+        {
+          "id": "CC6.2",
+          "title": "Prior to Issuing System Credentials",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/user-provisioning-workflow.pdf",
+            "https://evidence.connecthub.io/identity-verification-policy.pdf"
+          ]
+        },
+        {
+          "id": "CC6.3",
+          "title": "Authorizes Privileged Users",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/pam-policy.pdf",
+            "https://evidence.connecthub.io/admin-access-logs.json"
+          ]
+        },
+        {
+          "id": "CC6.6",
+          "title": "Restricts Logical Access",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/network-segmentation.pdf",
+            "https://evidence.connecthub.io/firewall-rules.json"
+          ]
+        },
+        {
+          "id": "CC7.1",
+          "title": "Detects Intrusions and Anomalies",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/ids-ips-config.json",
+            "https://evidence.connecthub.io/threat-detection-runbook.pdf"
+          ]
+        },
+        {
+          "id": "CC7.2",
+          "title": "Monitors System Components",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/monitoring-architecture.pdf",
+            "https://evidence.connecthub.io/alert-definitions.json"
+          ]
+        },
+        {
+          "id": "CC7.3",
+          "title": "Evaluates Security Events",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/incident-response-plan.pdf",
+            "https://evidence.connecthub.io/security-event-analysis-2023.pdf"
+          ]
+        },
+        {
+          "id": "CC7.4",
+          "title": "Responds to Security Incidents",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/incident-response-playbooks.pdf",
+            "https://evidence.connecthub.io/incident-postmortems-2023.json"
+          ]
+        },
+        {
+          "id": "CC8.1",
+          "title": "Authorizes, Designs, Develops, and Implements Changes",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/sdlc-policy.pdf",
+            "https://evidence.connecthub.io/change-management-logs.json"
+          ]
+        },
+        {
+          "id": "CC9.1",
+          "title": "Identifies and Manages Risk from Vendors",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/vendor-management-policy.pdf",
+            "https://evidence.connecthub.io/vendor-assessments-2024.json"
+          ]
+        },
+        {
+          "id": "A1.1",
+          "title": "Manages System Capacity",
+          "category": "Availability",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/capacity-planning.pdf",
+            "https://evidence.connecthub.io/autoscaling-config.json"
+          ]
+        },
+        {
+          "id": "A1.2",
+          "title": "Maintains Recovery Procedures",
+          "category": "Availability",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/dr-plan.pdf",
+            "https://evidence.connecthub.io/dr-test-results-2023.pdf"
+          ]
+        },
+        {
+          "id": "C1.1",
+          "title": "Confidential Information Identification",
+          "category": "Confidentiality",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/data-classification-policy.pdf",
+            "https://evidence.connecthub.io/data-inventory.json"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "title": "Confidential Information Disposal",
+          "category": "Confidentiality",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/data-retention-policy.pdf",
+            "https://evidence.connecthub.io/deletion-procedures.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ISO27001",
+      "version": "2022",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2023-12-15",
+      "auditor": "ISO Certification Body",
+      "certificate_ref": "https://trust.connecthub.io/certificates/iso27001-2023.pdf",
+      "controls": [
+        {
+          "id": "A.5.1",
+          "title": "Policies for information security",
+          "status": "compliant",
+          "evidence_refs": ["https://evidence.connecthub.io/isms-policies.pdf"]
+        },
+        {
+          "id": "A.5.7",
+          "title": "Threat intelligence",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/threat-intel-feeds.json",
+            "https://evidence.connecthub.io/threat-briefings-2023.pdf"
+          ]
+        },
+        {
+          "id": "A.8.9",
+          "title": "Configuration management",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/iac-policies.pdf",
+            "https://evidence.connecthub.io/terraform-state-sample.json"
+          ]
+        },
+        {
+          "id": "A.8.23",
+          "title": "Web filtering",
+          "status": "compliant",
+          "evidence_refs": ["https://evidence.connecthub.io/web-filter-policy.pdf"]
+        },
+        {
+          "id": "A.8.28",
+          "title": "Secure coding",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/secure-coding-guidelines.pdf",
+            "https://evidence.connecthub.io/sast-scan-results.json"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ISO20000",
+      "version": "2018",
+      "status": "compliant",
+      "score": 1.0,
+      "last_audit": "2023-12-15",
+      "auditor": "ISO Certification Body",
+      "certificate_ref": "https://trust.connecthub.io/certificates/iso20000-2023.pdf",
+      "controls": [
+        {
+          "id": "8.2.3",
+          "title": "Service level management",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/sla-definitions.pdf",
+            "https://evidence.connecthub.io/sla-performance-2023.json"
+          ]
+        },
+        {
+          "id": "8.3",
+          "title": "Supply and demand",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/capacity-management.pdf"
+          ]
+        },
+        {
+          "id": "8.6.1",
+          "title": "Incident management",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/incident-management-process.pdf",
+            "https://evidence.connecthub.io/incident-metrics-2023.json"
+          ]
+        },
+        {
+          "id": "8.6.2",
+          "title": "Problem management",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/problem-management-process.pdf",
+            "https://evidence.connecthub.io/known-errors-db.json"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GDPR",
+      "version": "2016/679",
+      "status": "compliant",
+      "score": 1.0,
+      "last_assessment": "2024-01-10",
+      "dpo_contact": "dpo@connecthub.io",
+      "controls": [
+        {
+          "id": "Article 5",
+          "title": "Principles relating to processing of personal data",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/data-processing-principles.pdf",
+            "https://evidence.connecthub.io/lawful-basis-register.json"
+          ]
+        },
+        {
+          "id": "Article 28",
+          "title": "Processor obligations",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/dpa-template.pdf",
+            "https://evidence.connecthub.io/subprocessor-list.json"
+          ]
+        },
+        {
+          "id": "Article 32",
+          "title": "Security of processing",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/technical-measures.pdf",
+            "https://evidence.connecthub.io/organizational-measures.pdf"
+          ]
+        },
+        {
+          "id": "Article 33",
+          "title": "Notification of personal data breach",
+          "status": "compliant",
+          "evidence_refs": [
+            "https://evidence.connecthub.io/breach-notification-procedure.pdf"
+          ]
+        }
+      ]
+    }
+  ],
+  "control_mappings": {
+    "SOC2:CC6.1": ["ISO27001:A.8.2", "GDPR:Article 32"],
+    "SOC2:CC7.2": ["ISO27001:A.5.7", "ISO20000:8.6.1"],
+    "SOC2:CC8.1": ["ISO27001:A.8.9", "ISO27001:A.8.28"],
+    "SOC2:A1.2": ["ISO20000:8.6.1"]
+  },
+  "service_commitments": {
+    "uptime_sla": "99.95%",
+    "uptime_actual_30d": "99.98%",
+    "rto": "4 hours",
+    "rpo": "1 hour",
+    "support_response_time": {
+      "critical": "15 minutes",
+      "high": "1 hour",
+      "medium": "4 hours",
+      "low": "24 hours"
+    }
+  },
+  "evidence_refs": [
+    {
+      "type": "trust_center",
+      "description": "Public trust center with all certifications and reports",
+      "url": "https://trust.connecthub.io",
+      "nda_required": false
+    },
+    {
+      "type": "presigned_url",
+      "description": "Complete evidence package (NDA required)",
+      "url": "https://s3.amazonaws.com/connecthub-evidence/2024-complete.zip?...",
+      "expires": "2024-01-22T00:00:00Z",
+      "hash": "sha256:def456...",
+      "nda_required": true
+    }
+  ],
+  "extensions": {
+    "connecthub": {
+      "integration_count": 500,
+      "customer_count": 12000,
+      "data_processed_monthly": "50TB",
+      "regions": ["us-east-1", "us-west-2", "eu-west-1", "ap-southeast-1"],
+      "data_residency_options": true,
+      "api_rate_limits": {
+        "standard": "1000 req/min",
+        "enterprise": "10000 req/min"
+      },
+      "security_features": {
+        "oauth2": true,
+        "saml": true,
+        "scim": true,
+        "ip_allowlisting": true,
+        "audit_logs": true,
+        "custom_data_retention": true
+      }
+    }
+  },
+  "_comment": "This example shows an integration platform (iPaaS) with multiple certifications: SOC2, ISO27001, ISO20000, and GDPR. Note the service_commitments field which is critical for platforms where availability is key. The control_mappings show how a single implementation can satisfy multiple frameworks, reducing audit burden. The trust_center reference shows how some evidence can be public while detailed evidence requires NDAs."
+}
