@@ -1,4 +1,4 @@
-# OpenCTS v1 Specification
+# OpenCPX v1 Specification — Open Compliance Posture eXchange
 
 **Version:** 1.0
 **Status:** Draft
@@ -8,7 +8,7 @@
 
 ## 1. Overview
 
-OpenCTS defines a **standardized telemetry schema** and **API exposure model**
+OpenCPX defines a **standardized posture schema** and **API exposure model**
 for SaaS platforms to report their **compliance posture** and **evidence references**.
 
 ### Design Principles and Rationale
@@ -17,14 +17,14 @@ Each design principle addresses a specific pain point in today's compliance land
 
 | Principle | Pain Point It Solves | Real-World Example |
 |-----------|---------------------|-------------------|
-| **Lightweight** — minimal mandatory fields | Vendors avoid implementing complex standards that require months of engineering work | A 5-person startup can expose `/cts` in a day, not 6 months |
+| **Lightweight** — minimal mandatory fields | Vendors avoid implementing complex standards that require months of engineering work | A 5-person startup can expose `/cpx` in a day, not 6 months |
 | **Incremental** — partial compliance allowed | Binary "compliant/not compliant" doesn't reflect reality; vendors working toward compliance can still participate | A vendor with 45/50 SOC2 controls implemented can show `score: 0.9` instead of being excluded |
 | **Adaptable** — supports custom frameworks and controls | New regulations (AI Act, DORA) emerge faster than standards can update | Vendors can add new frameworks immediately without waiting for spec updates |
 | **Secure** — evidence references, not raw data | Embedding sensitive documents in API responses creates security and privacy risks | Evidence files are accessed via secure, time-limited, auditable URLs |
 
 ### Why These Fields?
 
-Every field in OpenCTS exists because of a specific problem:
+Every field in OpenCPX exists because of a specific problem:
 
 **`timestamp`** — Auditors constantly ask "when was this data collected?" Without timestamps, they can't determine if compliance data is current.
 
@@ -193,41 +193,41 @@ This saves 1-3 days per audit, per vendor.
 
 ## 4. Exposure Endpoint
 
-### Why `/cts`?
+### Why `/cpx`?
 
 The endpoint path was chosen for discoverability and consistency:
 
 - **Short and memorable**: Like `/health` or `/metrics`
 - **No collisions**: Unlikely to conflict with existing API paths
-- **Standard location**: Every OpenCTS-compliant service uses the same path
+- **Standard location**: Every OpenCPX-compliant service uses the same path
 
 | Path | Method | Description | Use Case |
 |------|---------|-------------|----------|
-| `/cts` | GET | Returns compliance telemetry JSON | Primary endpoint for all consumers |
-| `/cts/metrics` | GET | Prometheus/OTEL format | Monitoring dashboards, alerting |
+| `/cpx` | GET | Returns compliance telemetry JSON | Primary endpoint for all consumers |
+| `/cpx/metrics` | GET | Prometheus/OTEL format | Monitoring dashboards, alerting |
 
 ### Authentication Considerations
 
-OpenCTS does not mandate authentication, but recommends:
+OpenCPX does not mandate authentication, but recommends:
 
-**Public `/cts`** — For trust center replacement. Shows framework-level status, no sensitive details.
+**Public `/cpx`** — For trust center replacement. Shows framework-level status, no sensitive details.
 
-**Authenticated `/cts`** — For customer-specific views with control-level details and evidence.
+**Authenticated `/cpx`** — For customer-specific views with control-level details and evidence.
 
 **Example of tiered access:**
 
 ```
 # Public (no auth)
-GET /cts
+GET /cpx
 → Returns framework scores only
 
 # Customer (API key)
-GET /cts
+GET /cpx
 Authorization: Bearer <customer_api_key>
 → Returns full control details and evidence URLs
 
 # Auditor (special access)
-GET /cts
+GET /cpx
 Authorization: Bearer <auditor_token>
 → Returns everything including presigned evidence URLs
 ```
@@ -242,10 +242,10 @@ Compliance is not just a point-in-time snapshot. Organizations need:
 
 ```
 # Prometheus format
-opencts_compliance_score{framework="SOC2",vendor="payflow"} 0.85
-opencts_compliance_score{framework="ISO27001",vendor="payflow"} 1.0
-opencts_framework_status{framework="SOC2",vendor="payflow",status="partial"} 1
-opencts_last_audit_timestamp{framework="SOC2",vendor="payflow"} 1704931200
+opencpx_compliance_score{framework="SOC2",vendor="payflow"} 0.85
+opencpx_compliance_score{framework="ISO27001",vendor="payflow"} 1.0
+opencpx_framework_status{framework="SOC2",vendor="payflow",status="partial"} 1
+opencpx_last_audit_timestamp{framework="SOC2",vendor="payflow"} 1704931200
 ```
 
 ### Response Codes
@@ -265,7 +265,7 @@ opencts_last_audit_timestamp{framework="SOC2",vendor="payflow"} 1704931200
 
 ### The Core Principle: References, Not Content
 
-OpenCTS **never transports evidence directly**. Here's why:
+OpenCPX **never transports evidence directly**. Here's why:
 
 **Security risk**: Embedding SOC2 reports, penetration test results, or security policies in API responses exposes sensitive data.
 
@@ -305,7 +305,7 @@ OpenCTS **never transports evidence directly**. Here's why:
 
 **Scenario**: Auditor needs to review vendor's access control policy.
 
-**Today (without OpenCTS)**:
+**Today (without OpenCPX)**:
 1. Auditor emails vendor
 2. Vendor finds document (2 days)
 3. Vendor uploads to shared drive
@@ -314,8 +314,8 @@ OpenCTS **never transports evidence directly**. Here's why:
 6. Auditor downloads
 7. Link expires, auditor needs it again, repeat from step 1
 
-**With OpenCTS**:
-1. Auditor queries `/cts`
+**With OpenCPX**:
+1. Auditor queries `/cpx`
 2. Finds control CC6.1 with `evidence_refs`
 3. Downloads via presigned URL
 4. Verifies hash matches
@@ -487,7 +487,7 @@ Use `control_mappings` to show how frameworks overlap:
 }
 ```
 
-That's it. You're OpenCTS compliant.
+That's it. You're OpenCPX compliant.
 
 ### Standard Implementation (1 week)
 
@@ -576,4 +576,4 @@ See [examples/](examples/) for complete payloads.
 
 ---
 
-MIT License © 2025 OpenCTS Working Group
+MIT License © 2025 OpenCPX Working Group

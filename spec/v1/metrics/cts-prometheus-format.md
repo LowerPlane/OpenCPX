@@ -1,6 +1,6 @@
-# CTS Prometheus Metrics
+# CPX Prometheus Metrics
 
 Example:
 ```
-opencts_compliance_score{framework="SOC2"} 1.0
+opencpx_compliance_score{framework="SOC2"} 1.0
 ```

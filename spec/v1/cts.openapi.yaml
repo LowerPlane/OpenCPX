@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
-  title: OpenCTS API
+  title: OpenCPX API
   version: "v1"
   description: |
-    Open Compliance Telemetry Standard (OpenCTS) API Specification — Version 1.0
+    Open Compliance Posture eXchange (OpenCPX) API Specification — Version 1.0
 
-    OpenCTS provides a unified, lightweight, and flexible standard for exchanging compliance telemetry
+    OpenCPX provides a unified, lightweight, and flexible standard for exchanging compliance posture
     data between SaaS products, auditors, and automated governance systems.
 
     It defines how systems report and retrieve compliance posture, evidence, and framework alignment.
@@ -14,73 +14,73 @@ license:
   name: Apache 2.0
   url: https://www.apache.org/licenses/LICENSE-2.0.html
 contact:
-  name: OpenCTS Project
-  url: https://opencts.io
-  email: maintainers@opencts.io
+  name: OpenCPX Project
+  url: https://opencpx.io
+  email: maintainers@opencpx.io
 
 servers:
-  - url: https://api.opencts.io/v1
+  - url: https://api.opencpx.io/v1
     description: Production server
-  - url: https://staging.opencts.io/v1
+  - url: https://staging.opencpx.io/v1
     description: Staging server
 
 paths:
-  /cts:
+  /cpx:
     post:
-      summary: Submit compliance telemetry
-      description: Submit compliance telemetry data for a SaaS system, service, or environment.
-      operationId: submitCTS
+      summary: Submit compliance posture
+      description: Submit compliance posture data for a SaaS system, service, or environment.
+      operationId: submitCPX
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CTS"
+              $ref: "#/components/schemas/CPX"
           application/yaml:
             schema:
-              $ref: "#/components/schemas/CTS"
+              $ref: "#/components/schemas/CPX"
       responses:
         "202":
           description: Telemetry accepted for processing
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CTSResponse"
+                $ref: "#/components/schemas/CPXResponse"
         "400":
-          description: Invalid CTS payload
+          description: Invalid CPX payload
         "500":
           description: Internal processing error
 
     get:
-      summary: Retrieve compliance telemetry
-      description: Retrieve the latest compliance telemetry summary for a given system or service.
-      operationId: getCTS
+      summary: Retrieve compliance posture
+      description: Retrieve the latest compliance posture summary for a given system or service.
+      operationId: getCPX
       parameters:
         - name: system_id
           in: query
           required: false
-          description: Optional system identifier to filter telemetry
+          description: Optional system identifier to filter posture
           schema:
             type: string
         - name: framework
           in: query
           required: false
-          description: Filter telemetry by compliance framework
+          description: Filter posture by compliance framework
           schema:
             type: string
       responses:
         "200":
-          description: Current compliance telemetry
+          description: Current compliance posture
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CTS"
+                $ref: "#/components/schemas/CPX"
         "404":
-          description: No telemetry found for specified criteria
+          description: No posture found for specified criteria
 
 components:
   schemas:
-    CTS:
+    CPX:
       type: object
       required: [version, timestamp, compliance_posture, frameworks]
       properties:
@@ -92,7 +92,7 @@ components:
           type: string
           format: date-time
           example: "2025-10-16T15:30:00Z"
-          description: Time telemetry was generated
+          description: Time posture was generated
         compliance_posture:
           type: string
           enum: [compliant, partially_compliant, non_compliant, unknown]
@@ -135,12 +135,12 @@ components:
                       example: "compliant"
                     evidence_ref:
                       type: string
-                      example: "https://storage.opencts.io/evidence/cc11-report.pdf"
+                      example: "https://storage.opencpx.io/evidence/cc11-report.pdf"
         evidence_refs:
           type: array
           items:
             type: string
-            example: "https://storage.opencts.io/evidence/system-diagram.png"
+            example: "https://storage.opencpx.io/evidence/system-diagram.png"
         extensions:
           type: object
           additionalProperties: true
@@ -149,12 +149,12 @@ components:
             vendor: "Lowerplane"
             environment: "staging"
 
-    CTSResponse:
+    CPXResponse:
       type: object
       properties:
         id:
           type: string
-          description: Unique telemetry identifier
+          description: Unique posture identifier
           example: "cts-20251016-0001"
         status:
           type: string
@@ -170,4 +170,4 @@ components:
 
 tags:
   - name: Compliance
-    description: Submit or retrieve compliance telemetry
+    description: Submit or retrieve compliance posture

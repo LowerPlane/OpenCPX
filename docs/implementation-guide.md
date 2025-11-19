@@ -1,6 +1,6 @@
-# OpenCTS Implementation Guide
+# OpenCPX Implementation Guide
 
-This guide walks you through implementing OpenCTS in your SaaS product, from minimal viable implementation to enterprise-grade deployment.
+This guide walks you through implementing OpenCPX in your SaaS product, from minimal viable implementation to enterprise-grade deployment.
 
 ---
 
@@ -9,7 +9,7 @@ This guide walks you through implementing OpenCTS in your SaaS product, from min
 ### What You'll Need
 
 1. **Compliance data**: Framework status, control mapping, evidence locations
-2. **API endpoint**: Ability to add `/cts` to your existing API
+2. **API endpoint**: Ability to add `/cpx` to your existing API
 3. **Evidence storage**: S3, GCS, or equivalent for evidence files
 4. **1-8 hours**: Depending on implementation depth
 
@@ -52,7 +52,7 @@ This guide walks you through implementing OpenCTS in your SaaS product, from min
 
 **Node.js/Express**:
 ```javascript
-app.get('/cts', (req, res) => {
+app.get('/cpx', (req, res) => {
   res.json({
     version: 'v1',
     timestamp: new Date().toISOString(),
@@ -74,7 +74,7 @@ app.get('/cts', (req, res) => {
 from flask import jsonify
 from datetime import datetime
 
-@app.route('/cts')
+@app.route('/cpx')
 def compliance_telemetry():
     return jsonify({
         'version': 'v1',
@@ -116,7 +116,7 @@ func ctsHandler(w http.ResponseWriter, r *http.Request) {
 ### Step 3: Test it
 
 ```bash
-curl https://api.yourcompany.com/cts | jq
+curl https://api.yourcompany.com/cpx | jq
 ```
 
 **Time invested**: 1 hour
@@ -218,7 +218,7 @@ async function buildEvidenceRefs(evidenceFiles) {
 ### Step 3: Build the full response
 
 ```javascript
-app.get('/cts', async (req, res) => {
+app.get('/cpx', async (req, res) => {
   const frameworks = [];
 
   for (const [name, data] of Object.entries(complianceData)) {
@@ -284,19 +284,19 @@ const promClient = require('prom-client');
 
 // Create metrics
 const complianceScore = new promClient.Gauge({
-  name: 'opencts_compliance_score',
+  name: 'opencpx_compliance_score',
   help: 'Compliance score for a framework',
   labelNames: ['framework']
 });
 
 const controlStatus = new promClient.Gauge({
-  name: 'opencts_control_status',
+  name: 'opencpx_control_status',
   help: 'Control compliance status (1=compliant, 0.5=partial, 0=non_compliant)',
   labelNames: ['framework', 'control_id']
 });
 
 const lastAudit = new promClient.Gauge({
-  name: 'opencts_last_audit_timestamp',
+  name: 'opencpx_last_audit_timestamp',
   help: 'Timestamp of last audit',
   labelNames: ['framework']
 });
@@ -314,7 +314,7 @@ function updateMetrics() {
 }
 
 // Metrics endpoint
-app.get('/cts/metrics', (req, res) => {
+app.get('/cpx/metrics', (req, res) => {
   updateMetrics();
   res.set('Content-Type', promClient.register.contentType);
   res.end(promClient.register.metrics());
@@ -329,7 +329,7 @@ scrape_configs:
   - job_name: 'opencts'
     static_configs:
       - targets: ['your-api:3000']
-    metrics_path: '/cts/metrics'
+    metrics_path: '/cpx/metrics'
     scrape_interval: 1h  # Compliance data doesn't change frequently
 ```
 
@@ -341,7 +341,7 @@ groups:
   - name: compliance
     rules:
       - alert: ComplianceScoreDrop
-        expr: opencts_compliance_score < 0.9
+        expr: opencpx_compliance_score < 0.9
         for: 1h
         labels:
           severity: warning
@@ -350,7 +350,7 @@ groups:
           description: "{{ $labels.framework }} score is {{ $value }}"
 
       - alert: AuditExpiring
-        expr: (time() - opencts_last_audit_timestamp) > 31536000  # 1 year
+        expr: (time() - opencpx_last_audit_timestamp) > 31536000  # 1 year
         for: 1d
         labels:
           severity: critical
@@ -369,7 +369,7 @@ groups:
       "type": "gauge",
       "targets": [
         {
-          "expr": "opencts_compliance_score",
+          "expr": "opencpx_compliance_score",
           "legendFormat": "{{ framework }}"
         }
       ],
@@ -586,7 +586,7 @@ Pick a naming convention and stick to it:
 
 ### Schema validation
 
-Use the OpenCTS JSON Schema to validate your response:
+Use the OpenCPX JSON Schema to validate your response:
 
 ```bash
 npm install ajv
@@ -596,13 +596,13 @@ npm install ajv
 const Ajv = require('ajv');
 const ajv = new Ajv();
 
-const schema = require('./cts-schema.json');
+const schema = require('./cpx-schema.json');
 const validate = ajv.compile(schema);
 
-const yourResponse = await fetch('http://localhost:3000/cts').then(r => r.json());
+const yourResponse = await fetch('http://localhost:3000/cpx').then(r => r.json());
 
 if (validate(yourResponse)) {
-  console.log('Valid OpenCTS response!');
+  console.log('Valid OpenCPX response!');
 } else {
   console.log('Validation errors:', validate.errors);
 }
@@ -622,11 +622,11 @@ if (validate(yourResponse)) {
 
 ## Next Steps
 
-1. **Start minimal** — Get `/cts` live with basic data today
+1. **Start minimal** — Get `/cpx` live with basic data today
 2. **Add controls** — Map your compliance controls over the next week
 3. **Add evidence** — Connect presigned URLs to your evidence storage
 4. **Add monitoring** — Set up Prometheus/OTEL if you use them
-5. **Tell customers** — Let them know they can query `/cts`
+5. **Tell customers** — Let them know they can query `/cpx`
 
 ---
 
@@ -634,8 +634,8 @@ if (validate(yourResponse)) {
 
 - **Spec questions**: See [spec.md](../spec/v1/spec.md)
 - **Examples**: See [examples/](../spec/v1/examples/)
-- **Community**: Join the OpenCTS working group
+- **Community**: Join the OpenCPX working group
 
 ---
 
-MIT License © 2025 OpenCTS Working Group
+MIT License © 2025 OpenCPX Working Group

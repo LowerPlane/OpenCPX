@@ -1,11 +1,11 @@
-# OpenCTS — Compliance Telemetry Standard
+# OpenCPX — Open Compliance Posture eXchange
 
-**OpenCTS** is a **lightweight, extensible, and vendor-neutral standard** for exposing **compliance telemetry** from SaaS platforms.
+**OpenCPX** is a **lightweight, extensible, and vendor-neutral standard** for exposing **compliance posture** from SaaS platforms.
 It helps SaaS providers, auditors, and GRC platforms exchange compliance posture in a **machine-readable** format — like how Prometheus exposes metrics, or how OpenTelemetry exposes traces.
 
 ---
 
-## Why OpenCTS Exists
+## Why OpenCPX Exists
 
 ### The Problem Today
 
@@ -43,11 +43,11 @@ Company: *Spends 3 weeks*
 - 1 vendor sends a 500MB zip file with no documentation
 ```
 
-**What Should Happen (with OpenCTS)**:
+**What Should Happen (with OpenCPX)**:
 ```bash
 # Query all vendors in 5 minutes
 for vendor in vendors.txt; do
-  curl -s "https://$vendor/cts" | jq '.frameworks[] | select(.name=="SOC2")'
+  curl -s "https://$vendor/cpx" | jq '.frameworks[] | select(.name=="SOC2")'
 done
 ```
 
@@ -65,7 +65,7 @@ done
 
 **Time spent**: 40+ hours per audit just on control mapping
 
-**With OpenCTS**:
+**With OpenCPX**:
 ```json
 {
   "frameworks": [{
@@ -95,10 +95,10 @@ The vendor has already mapped their evidence to controls. The auditor knows exac
 - You only find out when your auditor flags it
 - Now you're scrambling during audit season
 
-**With OpenCTS**:
+**With OpenCPX**:
 ```bash
 # Set up monitoring for all vendors
-curl https://vendor.com/cts | jq '.timestamp, .compliance_posture'
+curl https://vendor.com/cpx | jq '.timestamp, .compliance_posture'
 # "2024-01-15T08:00:00Z"
 # "compliant"
 
@@ -116,7 +116,7 @@ curl https://vendor.com/cts | jq '.timestamp, .compliance_posture'
 - No audit trail of who accessed what
 - Files sitting in email inboxes indefinitely
 
-**With OpenCTS**:
+**With OpenCPX**:
 ```json
 {
   "evidence_refs": [
@@ -144,7 +144,7 @@ curl https://vendor.com/cts | jq '.timestamp, .compliance_posture'
 - Three separate reports
 - Controls that map to each other are verified independently
 
-**With OpenCTS**:
+**With OpenCPX**:
 ```json
 {
   "frameworks": [
@@ -178,15 +178,15 @@ http_requests_total{method="GET", status="200"} 1234
 
 Every monitoring tool could instantly understand any application.
 
-### OpenCTS Does the Same for Compliance
+### OpenCPX Does the Same for Compliance
 
-Before OpenCTS:
+Before OpenCPX:
 - Every SaaS vendor has their own "Trust Center"
 - PDFs, portals, emails, spreadsheets
 - No machine-readable format
 - No way to aggregate across vendors
 
-After OpenCTS:
+After OpenCPX:
 ```json
 {
   "version": "v1",
@@ -209,7 +209,7 @@ Every compliance platform can instantly understand any SaaS vendor.
 ### For Compliance Platforms (Vanta, Drata, LowerPlane)
 - **Automated vendor assessment**: No more manual PDF parsing
 - **Real-time monitoring**: Know when vendor compliance changes
-- **Standardized integrations**: Build once, work with any OpenCTS-compliant vendor
+- **Standardized integrations**: Build once, work with any OpenCPX-compliant vendor
 
 ### For Auditors
 - **Faster evidence collection**: Query instead of request
@@ -225,7 +225,7 @@ Every compliance platform can instantly understand any SaaS vendor.
 
 ## 🧠 Core Concept
 
-Every SaaS platform can expose a simple JSON (or YAML/XML) payload at `/cts`:
+Every SaaS platform can expose a simple JSON (or YAML/XML) payload at `/cpx`:
 
 ```json
 {
@@ -265,8 +265,8 @@ Auditors or compliance tools can fetch this and **instantly understand**:
 
 | HTTP Method | Path | Description |
 |--------------|------|-------------|
-| `GET` | `/cts` | Returns compliance posture JSON |
-| `GET` | `/cts?format=yaml` | Returns same data in YAML format |
+| `GET` | `/cpx` | Returns compliance posture JSON |
+| `GET` | `/cpx?format=yaml` | Returns same data in YAML format |
 
 ---
 
@@ -304,7 +304,7 @@ Each SaaS platform defines its own retrieval or attestation model.
 
 ## 🛠 Example SDKs
 
-- `sdk/go` → Exposes `/cts` endpoint for Go services  
+- `sdk/go` → Exposes `/cpx` endpoint for Go services  
 - `sdk/python` → Generate CTS payloads dynamically  
 - `sdk/js` → Integrate with frontend compliance dashboards  
 
@@ -312,7 +312,7 @@ Each SaaS platform defines its own retrieval or attestation model.
 
 ## 🤝 Governance
 
-OpenCTS is designed to be **community-governed**, not vendor-controlled.  
+OpenCPX is designed to be **community-governed**, not vendor-controlled.  
 Working groups define schema versions, SDK evolution, and interoperability.
 
 - Governance docs → [`docs/governance/`](docs/governance/)
@@ -331,4 +331,4 @@ We’re building a global standard for compliance telemetry.
 ---
 
 ## 📜 License
-MIT License © 2025 OpenCTS Working Group
+MIT License © 2025 OpenCPX Working Group
