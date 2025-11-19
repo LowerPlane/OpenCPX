@@ -9,6 +9,8 @@ Official SDKs for implementing OpenCPX compliance posture endpoints in your appl
 | [Go SDK](./go) | Go | HTTP handlers and middleware for Go services | Stable |
 | [Python SDK](./python) | Python | Flask, FastAPI, and Django integration | Stable |
 | [JavaScript SDK](./js) | TypeScript/JS | Express, Fastify, Koa, and Next.js integration | Stable |
+| [Java SDK](./java) | Java | Spring Boot and Jakarta Servlet integration | Stable |
+| [.NET SDK](./dotnet) | C# | ASP.NET Core integration | Stable |
 
 ## Quick Comparison
 
@@ -57,6 +59,34 @@ function getPosture(): Posture {
 app.get('/cpx', createExpressHandler(getPosture));
 ```
 
+### Java
+
+```java
+import io.opencpx.*;
+
+@Bean
+public CpxController cpxController() {
+    return new CpxController(() -> {
+        Posture posture = new Posture(CompliancePosture.COMPLIANT);
+        posture.addFramework(new Framework("SOC2", FrameworkStatus.COMPLIANT, 1.0));
+        return posture;
+    });
+}
+```
+
+### C# / .NET
+
+```csharp
+using OpenCPX;
+
+app.MapCpxEndpoint(() =>
+{
+    var posture = new Posture(CompliancePosture.Compliant);
+    posture.AddFramework(new Framework("SOC2", FrameworkStatus.Compliant, 1.0));
+    return posture;
+});
+```
+
 ## Common Features
 
 All SDKs provide:
@@ -86,6 +116,22 @@ pip install opencpx
 
 ```bash
 npm install @opencpx/sdk
+```
+
+### Java (Maven)
+
+```xml
+<dependency>
+    <groupId>io.opencpx</groupId>
+    <artifactId>opencpx-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### .NET
+
+```bash
+dotnet add package OpenCPX
 ```
 
 ## Testing Your Endpoint
