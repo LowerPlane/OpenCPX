@@ -1,5 +1,5 @@
 $schema: "http://json-schema.org/draft-07/schema#"
-$id: "https://opencpx.io/spec/v1/cts-schema.yaml"
+$id: "https://opencpx.io/spec/v1/cpx-schema.yaml"
 title: OpenCPX v1 Schema
 description: Schema definition for Compliance Posture eXchange (CPX) v1
 type: object

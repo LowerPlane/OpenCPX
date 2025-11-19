@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://opencpx.io/spec/v1/cts-schema.json",
+  "$id": "https://opencpx.io/spec/v1/cpx-schema.json",
   "title": "OpenCPX v1 Schema",
   "description": "Schema definition for Compliance Posture eXchange (CPX) v1",
   "type": "object",
