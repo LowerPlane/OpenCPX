@@ -60,7 +60,7 @@ Focused teams that drive specific aspects of the project:
 
 #### Integrations Working Group
 - Develops integrations with compliance platforms
-- Coordinates with vendors (Vanta, Drata, etc.)
+- Coordinates with vendors (LowerPlane, Vanta, Drata, etc.)
 - Documents integration patterns
 - Meets monthly
 

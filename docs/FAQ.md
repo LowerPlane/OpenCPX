@@ -157,9 +157,9 @@ npx ajv-cli validate -s cpx-schema.json -d your-response.json
 
 ## Integration Questions
 
-### Does OpenCPX work with Vanta/Drata?
+### Does OpenCPX work with LowerPlane/Vanta/Drata?
 
-Yes, that's a primary use case. Compliance platforms can query OpenCPX endpoints to automatically assess vendor compliance.
+Yes, that's a primary use case. Compliance platforms like LowerPlane, Vanta, and Drata can query OpenCPX endpoints to automatically assess vendor compliance.
 
 ### Can I integrate with Prometheus?
 

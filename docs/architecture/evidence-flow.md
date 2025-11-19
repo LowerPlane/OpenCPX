@@ -18,7 +18,8 @@ OpenCPX provides a standardized way to expose compliance posture, including refe
 │   SaaS Platform │     │  Compliance     │     │    Auditor      │
 │                 │     │  Platform       │     │                 │
 │  ┌───────────┐  │     │                 │     │                 │
-│  │ Your App  │  │     │  (Vanta, Drata) │     │                 │
+│  │ Your App  │  │     │   (LowerPlane,  │     │                 │
+│  │           │  │     │  Vanta, Drata)  │     │                 │
 │  └─────┬─────┘  │     │                 │     │                 │
 │        │        │     │                 │     │                 │
 │  ┌─────▼─────┐  │     │                 │     │                 │

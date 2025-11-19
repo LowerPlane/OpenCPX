@@ -60,6 +60,7 @@ OpenCPX is developed through working groups - focused teams that drive specific 
 **Meetings**: Monthly, First Thursday at 11:00 AM PT
 
 **Current Focus**:
+- LowerPlane integration
 - Vanta integration
 - Drata integration
 - Prometheus exporter
