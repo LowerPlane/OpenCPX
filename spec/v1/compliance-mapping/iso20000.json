@@ -1,1 +1,255 @@
-{ "framework": "ISO20000", "controls": ["Service Delivery", "Incident Mgmt"] }
+{
+  "$schema": "../cpx-schema.json",
+  "framework": {
+    "name": "ISO20000",
+    "version": "2018",
+    "description": "IT Service Management System (SMS) Standard",
+    "authority": "ISO/IEC"
+  },
+  "controls": [
+    {
+      "id": "4.1",
+      "title": "Understanding the Organization and its Context",
+      "description": "Determine external and internal issues relevant to the purpose and strategic direction of the service management system",
+      "category": "Context of the Organization",
+      "mappings": {
+        "ISO27001": ["A.6.1"],
+        "SOC2": ["CC3.1"],
+        "NIST_CSF": ["ID.BE-1", "ID.BE-2"]
+      }
+    },
+    {
+      "id": "5.1",
+      "title": "Leadership and Commitment",
+      "description": "Top management shall demonstrate leadership and commitment with respect to the SMS",
+      "category": "Leadership",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC1.2"],
+        "ISO27001": ["A.5.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "5.2",
+      "title": "Policy",
+      "description": "Top management shall establish a service management policy appropriate to the purpose of the organization",
+      "category": "Leadership",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC2.1"],
+        "ISO27001": ["A.5.1.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "6.1",
+      "title": "Actions to Address Risks and Opportunities",
+      "description": "Plan actions to address risks and opportunities related to the SMS",
+      "category": "Planning",
+      "mappings": {
+        "SOC2": ["CC3.1", "CC3.2"],
+        "ISO27001": ["A.6.1.2"],
+        "NIST_CSF": ["ID.RA-1", "ID.RA-5"]
+      }
+    },
+    {
+      "id": "7.1",
+      "title": "Resources",
+      "description": "Determine and provide the resources needed for the SMS",
+      "category": "Support",
+      "mappings": {
+        "SOC2": ["CC1.3"],
+        "ISO27001": ["A.7.1"],
+        "NIST_CSF": ["ID.AM-6"]
+      }
+    },
+    {
+      "id": "7.2",
+      "title": "Competence",
+      "description": "Determine necessary competence of persons doing work affecting service management performance",
+      "category": "Support",
+      "mappings": {
+        "SOC2": ["CC1.4"],
+        "ISO27001": ["A.7.2.2"],
+        "NIST_CSF": ["PR.AT-1"]
+      }
+    },
+    {
+      "id": "7.5",
+      "title": "Documented Information",
+      "description": "The SMS shall include documented information required by this document and determined as necessary",
+      "category": "Support",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.8.1.1"],
+        "NIST_CSF": ["ID.AM-1"]
+      }
+    },
+    {
+      "id": "8.2.1",
+      "title": "Service Portfolio",
+      "description": "Manage the service portfolio including service pipeline, service catalogue, and retired services",
+      "category": "Service Portfolio Management",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.8.1.1"],
+        "NIST_CSF": ["ID.AM-1", "ID.AM-2"]
+      }
+    },
+    {
+      "id": "8.2.3",
+      "title": "Service Level Management",
+      "description": "Agree service levels with customers and ensure services are delivered according to SLAs",
+      "category": "Service Level Management",
+      "mappings": {
+        "SOC2": ["CC2.2", "CC2.3"],
+        "ISO27001": ["A.15.1.2"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    },
+    {
+      "id": "8.3.2",
+      "title": "Capacity Management",
+      "description": "Determine and manage the capacity and performance of services",
+      "category": "Demand and Capacity Management",
+      "mappings": {
+        "SOC2": ["CC7.1"],
+        "ISO27001": ["A.12.1.3"],
+        "NIST_CSF": ["PR.DS-4"]
+      }
+    },
+    {
+      "id": "8.4.1",
+      "title": "Service Availability Management",
+      "description": "Determine service availability requirements and monitor and report on service availability",
+      "category": "Service Assurance",
+      "mappings": {
+        "SOC2": ["CC9.1"],
+        "ISO27001": ["A.17.2.1"],
+        "NIST_CSF": ["PR.DS-4", "PR.IP-9"]
+      }
+    },
+    {
+      "id": "8.4.2",
+      "title": "Service Continuity Management",
+      "description": "Plan for service continuity including availability and recovery requirements",
+      "category": "Service Assurance",
+      "mappings": {
+        "SOC2": ["CC9.1"],
+        "ISO27001": ["A.17.1"],
+        "HIPAA": ["164.308(a)(7)"],
+        "NIST_CSF": ["PR.IP-9", "RC.RP-1"]
+      }
+    },
+    {
+      "id": "8.5.1",
+      "title": "Incident Management",
+      "description": "Record, classify, prioritize, escalate, resolve, and close incidents",
+      "category": "Service Assurance",
+      "mappings": {
+        "SOC2": ["CC7.3", "CC7.4"],
+        "ISO27001": ["A.16.1"],
+        "HIPAA": ["164.308(a)(6)"],
+        "NIST_CSF": ["RS.RP-1", "RS.MI-1"]
+      }
+    },
+    {
+      "id": "8.5.2",
+      "title": "Service Request Management",
+      "description": "Record, classify, fulfill, and close service requests",
+      "category": "Service Assurance",
+      "mappings": {
+        "SOC2": ["CC6.2"],
+        "ISO27001": ["A.9.2.1"],
+        "NIST_CSF": ["PR.AC-1"]
+      }
+    },
+    {
+      "id": "8.5.3",
+      "title": "Problem Management",
+      "description": "Identify and manage problems to minimize impact and prevent recurrence",
+      "category": "Service Assurance",
+      "mappings": {
+        "SOC2": ["CC7.5"],
+        "ISO27001": ["A.16.1.6"],
+        "NIST_CSF": ["RS.AN-2", "RS.MI-3"]
+      }
+    },
+    {
+      "id": "8.6.1",
+      "title": "Change Management",
+      "description": "Ensure all changes are assessed, approved, implemented, and reviewed in a controlled manner",
+      "category": "Control Processes",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.12.1.2", "A.14.2.2"],
+        "NIST_CSF": ["PR.IP-3"]
+      }
+    },
+    {
+      "id": "8.6.2",
+      "title": "Release and Deployment Management",
+      "description": "Plan, schedule, and control the build, test, and deployment of releases",
+      "category": "Control Processes",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.12.1.4", "A.14.2.9"],
+        "NIST_CSF": ["PR.IP-3"]
+      }
+    },
+    {
+      "id": "8.7.1",
+      "title": "Configuration Management",
+      "description": "Define and control service and infrastructure components",
+      "category": "Resolution and Fulfillment",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC8.1"],
+        "ISO27001": ["A.8.1.1", "A.12.1.1"],
+        "NIST_CSF": ["ID.AM-1", "PR.IP-1"]
+      }
+    },
+    {
+      "id": "9.1",
+      "title": "Monitoring, Measurement, Analysis and Evaluation",
+      "description": "Determine what needs to be monitored and measured, and the methods for analysis and evaluation",
+      "category": "Performance Evaluation",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC7.1"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["DE.CM-1", "DE.CM-7"]
+      }
+    },
+    {
+      "id": "9.2",
+      "title": "Internal Audit",
+      "description": "Conduct internal audits at planned intervals to provide information about the SMS",
+      "category": "Performance Evaluation",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC4.2"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["ID.GV-4", "DE.DP-5"]
+      }
+    },
+    {
+      "id": "10.1",
+      "title": "Nonconformity and Corrective Action",
+      "description": "React to nonconformities and take action to control and correct them",
+      "category": "Improvement",
+      "mappings": {
+        "SOC2": ["CC4.2"],
+        "ISO27001": ["A.16.1.6"],
+        "NIST_CSF": ["RS.IM-1", "RS.IM-2"]
+      }
+    },
+    {
+      "id": "10.2",
+      "title": "Continual Improvement",
+      "description": "Continually improve the suitability, adequacy, and effectiveness of the SMS",
+      "category": "Improvement",
+      "mappings": {
+        "SOC2": ["CC4.2"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["PR.IP-7", "RS.IM-2"]
+      }
+    }
+  ]
+}

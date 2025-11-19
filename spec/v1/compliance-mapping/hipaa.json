@@ -1,1 +1,220 @@
-{ "framework": "HIPAA", "controls": ["164.306", "164.308"] }
+{
+  "$schema": "../cpx-schema.json",
+  "framework": {
+    "name": "HIPAA",
+    "version": "2013",
+    "description": "Health Insurance Portability and Accountability Act - Security Rule",
+    "authority": "U.S. Department of Health and Human Services"
+  },
+  "controls": [
+    {
+      "id": "164.308(a)(1)",
+      "title": "Security Management Process",
+      "description": "Implement policies and procedures to prevent, detect, contain, and correct security violations",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC3.1", "CC3.2"],
+        "ISO27001": ["A.5.1", "A.6.1.2"],
+        "NIST_CSF": ["ID.GV-1", "ID.RA-1"]
+      }
+    },
+    {
+      "id": "164.308(a)(2)",
+      "title": "Assigned Security Responsibility",
+      "description": "Identify the security official responsible for development and implementation of policies",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC1.3"],
+        "ISO27001": ["A.6.1.1"],
+        "NIST_CSF": ["ID.GV-2"]
+      }
+    },
+    {
+      "id": "164.308(a)(3)",
+      "title": "Workforce Security",
+      "description": "Implement policies and procedures to ensure appropriate access to ePHI",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.2", "CC6.3"],
+        "ISO27001": ["A.7.1", "A.7.2", "A.9.2"],
+        "NIST_CSF": ["PR.AC-1", "PR.IP-11"]
+      }
+    },
+    {
+      "id": "164.308(a)(4)",
+      "title": "Information Access Management",
+      "description": "Implement policies and procedures for authorizing access to ePHI",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.2", "CC6.3"],
+        "ISO27001": ["A.9.1", "A.9.2"],
+        "NIST_CSF": ["PR.AC-1", "PR.AC-4"]
+      }
+    },
+    {
+      "id": "164.308(a)(5)",
+      "title": "Security Awareness and Training",
+      "description": "Implement security awareness and training program for all workforce members",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC1.4", "CC2.2"],
+        "ISO27001": ["A.7.2.2"],
+        "NIST_CSF": ["PR.AT-1", "PR.AT-2"]
+      }
+    },
+    {
+      "id": "164.308(a)(6)",
+      "title": "Security Incident Procedures",
+      "description": "Implement policies and procedures to address security incidents",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC7.3", "CC7.4"],
+        "ISO27001": ["A.16.1"],
+        "NIST_CSF": ["RS.RP-1", "RS.CO-1"]
+      }
+    },
+    {
+      "id": "164.308(a)(7)",
+      "title": "Contingency Plan",
+      "description": "Establish policies and procedures for responding to emergencies or disasters",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC9.1"],
+        "ISO27001": ["A.17.1"],
+        "NIST_CSF": ["PR.IP-9", "RC.RP-1"]
+      }
+    },
+    {
+      "id": "164.308(a)(8)",
+      "title": "Evaluation",
+      "description": "Perform periodic technical and nontechnical evaluation",
+      "category": "Administrative Safeguards",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC4.2"],
+        "ISO27001": ["A.18.2"],
+        "NIST_CSF": ["ID.GV-4", "DE.DP-5"]
+      }
+    },
+    {
+      "id": "164.310(a)(1)",
+      "title": "Facility Access Controls",
+      "description": "Implement policies to limit physical access to electronic information systems",
+      "category": "Physical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.4"],
+        "ISO27001": ["A.11.1", "A.11.2"],
+        "NIST_CSF": ["PR.AC-2"]
+      }
+    },
+    {
+      "id": "164.310(b)",
+      "title": "Workstation Use",
+      "description": "Implement policies for proper functions and physical attributes of workstations",
+      "category": "Physical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.4", "CC6.7"],
+        "ISO27001": ["A.11.2.8"],
+        "NIST_CSF": ["PR.AC-2"]
+      }
+    },
+    {
+      "id": "164.310(c)",
+      "title": "Workstation Security",
+      "description": "Implement physical safeguards for workstations that access ePHI",
+      "category": "Physical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.4"],
+        "ISO27001": ["A.11.2.1"],
+        "NIST_CSF": ["PR.AC-2"]
+      }
+    },
+    {
+      "id": "164.310(d)(1)",
+      "title": "Device and Media Controls",
+      "description": "Implement policies for receipt, removal, and disposal of hardware and electronic media",
+      "category": "Physical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.5"],
+        "ISO27001": ["A.8.3", "A.11.2.7"],
+        "NIST_CSF": ["PR.DS-3", "PR.IP-6"]
+      }
+    },
+    {
+      "id": "164.312(a)(1)",
+      "title": "Access Control",
+      "description": "Implement technical policies to allow only authorized access to ePHI",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.3"],
+        "ISO27001": ["A.9.1", "A.9.4"],
+        "NIST_CSF": ["PR.AC-1", "PR.AC-4"]
+      }
+    },
+    {
+      "id": "164.312(a)(2)(i)",
+      "title": "Unique User Identification",
+      "description": "Assign a unique name and/or number for identifying and tracking user identity",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.2"],
+        "ISO27001": ["A.9.2.1"],
+        "NIST_CSF": ["PR.AC-1"]
+      }
+    },
+    {
+      "id": "164.312(a)(2)(iv)",
+      "title": "Encryption and Decryption",
+      "description": "Implement mechanism to encrypt and decrypt ePHI",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.7"],
+        "ISO27001": ["A.10.1"],
+        "NIST_CSF": ["PR.DS-1", "PR.DS-2"]
+      }
+    },
+    {
+      "id": "164.312(b)",
+      "title": "Audit Controls",
+      "description": "Implement mechanisms to record and examine activity in systems that contain ePHI",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC7.1", "CC7.2"],
+        "ISO27001": ["A.12.4"],
+        "NIST_CSF": ["PR.PT-1", "DE.CM-1"]
+      }
+    },
+    {
+      "id": "164.312(c)(1)",
+      "title": "Integrity",
+      "description": "Implement policies to protect ePHI from improper alteration or destruction",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1"],
+        "ISO27001": ["A.12.2", "A.14.1.2"],
+        "NIST_CSF": ["PR.DS-6"]
+      }
+    },
+    {
+      "id": "164.312(d)",
+      "title": "Person or Entity Authentication",
+      "description": "Implement procedures to verify persons or entities seeking access to ePHI",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.6"],
+        "ISO27001": ["A.9.4.2"],
+        "NIST_CSF": ["PR.AC-7"]
+      }
+    },
+    {
+      "id": "164.312(e)(1)",
+      "title": "Transmission Security",
+      "description": "Implement measures to guard against unauthorized access during transmission",
+      "category": "Technical Safeguards",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.7"],
+        "ISO27001": ["A.10.1.1", "A.13.2.1"],
+        "NIST_CSF": ["PR.DS-2", "PR.DS-5"]
+      }
+    }
+  ]
+}

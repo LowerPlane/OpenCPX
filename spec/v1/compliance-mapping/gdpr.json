@@ -1,1 +1,194 @@
-{ "framework": "GDPR", "controls": ["Article 5", "Article 32"] }
+{
+  "$schema": "../cpx-schema.json",
+  "framework": {
+    "name": "GDPR",
+    "version": "2016/679",
+    "description": "General Data Protection Regulation - EU Data Privacy Framework",
+    "authority": "European Union"
+  },
+  "controls": [
+    {
+      "id": "Article 5",
+      "title": "Principles Relating to Processing of Personal Data",
+      "description": "Personal data shall be processed lawfully, fairly, and transparently with purpose limitation, data minimization, accuracy, storage limitation, integrity and confidentiality, and accountability",
+      "category": "Principles",
+      "mappings": {
+        "ISO27001": ["A.18.1.4"],
+        "SOC2": ["CC2.1"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    },
+    {
+      "id": "Article 6",
+      "title": "Lawfulness of Processing",
+      "description": "Processing shall be lawful only if at least one of the specified conditions applies (consent, contract, legal obligation, vital interests, public task, legitimate interests)",
+      "category": "Lawfulness",
+      "mappings": {
+        "ISO27001": ["A.18.1.4"],
+        "SOC2": ["CC2.3"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    },
+    {
+      "id": "Article 7",
+      "title": "Conditions for Consent",
+      "description": "Controller must demonstrate consent, consent request must be distinguishable, data subject has right to withdraw consent",
+      "category": "Consent",
+      "mappings": {
+        "ISO27001": ["A.18.1.4"],
+        "SOC2": ["CC2.3"]
+      }
+    },
+    {
+      "id": "Article 12",
+      "title": "Transparent Information and Communication",
+      "description": "Controller shall provide information in a concise, transparent, intelligible and easily accessible form",
+      "category": "Data Subject Rights",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC2.2"],
+        "ISO27001": ["A.18.1.4"]
+      }
+    },
+    {
+      "id": "Article 13",
+      "title": "Information to be Provided When Data is Collected",
+      "description": "Controller shall provide identity, contact details, purposes, legal basis, recipients, transfers, and retention period",
+      "category": "Data Subject Rights",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.18.1.4"]
+      }
+    },
+    {
+      "id": "Article 15",
+      "title": "Right of Access by the Data Subject",
+      "description": "Data subject has right to obtain confirmation and access to personal data being processed",
+      "category": "Data Subject Rights",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.18.1.4"]
+      }
+    },
+    {
+      "id": "Article 17",
+      "title": "Right to Erasure (Right to be Forgotten)",
+      "description": "Data subject has right to obtain erasure of personal data without undue delay",
+      "category": "Data Subject Rights",
+      "mappings": {
+        "ISO27001": ["A.8.3.2"],
+        "SOC2": ["CC6.5"]
+      }
+    },
+    {
+      "id": "Article 20",
+      "title": "Right to Data Portability",
+      "description": "Data subject has right to receive personal data in structured, commonly used and machine-readable format",
+      "category": "Data Subject Rights",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.18.1.4"]
+      }
+    },
+    {
+      "id": "Article 25",
+      "title": "Data Protection by Design and by Default",
+      "description": "Controller shall implement appropriate technical and organizational measures for data protection principles",
+      "category": "Security",
+      "mappings": {
+        "SOC2": ["CC5.1", "CC6.1"],
+        "ISO27001": ["A.14.1.1", "A.14.2.5"],
+        "NIST_CSF": ["PR.IP-2"]
+      }
+    },
+    {
+      "id": "Article 28",
+      "title": "Processor",
+      "description": "Processing by a processor shall be governed by a contract binding the processor to the controller",
+      "category": "Processor Requirements",
+      "mappings": {
+        "SOC2": ["CC9.2"],
+        "ISO27001": ["A.15.1.2", "A.15.2.1"],
+        "NIST_CSF": ["ID.SC-3"]
+      }
+    },
+    {
+      "id": "Article 30",
+      "title": "Records of Processing Activities",
+      "description": "Controller and processor shall maintain records of processing activities under its responsibility",
+      "category": "Documentation",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC7.1"],
+        "ISO27001": ["A.8.1.1", "A.12.4.1"],
+        "NIST_CSF": ["ID.AM-1", "PR.PT-1"]
+      }
+    },
+    {
+      "id": "Article 32",
+      "title": "Security of Processing",
+      "description": "Controller and processor shall implement appropriate technical and organizational measures including pseudonymisation, encryption, confidentiality, resilience, and testing",
+      "category": "Security",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.7", "CC7.1"],
+        "ISO27001": ["A.10.1", "A.12.1", "A.17.1"],
+        "HIPAA": ["164.312(a)(1)", "164.312(e)(1)"],
+        "NIST_CSF": ["PR.DS-1", "PR.DS-2", "PR.IP-9"]
+      }
+    },
+    {
+      "id": "Article 33",
+      "title": "Notification of Personal Data Breach to Supervisory Authority",
+      "description": "Controller shall notify supervisory authority within 72 hours of becoming aware of a personal data breach",
+      "category": "Breach Notification",
+      "mappings": {
+        "SOC2": ["CC7.3", "CC7.4"],
+        "ISO27001": ["A.16.1.2", "A.16.1.5"],
+        "HIPAA": ["164.308(a)(6)"],
+        "NIST_CSF": ["RS.CO-2", "RS.CO-3"]
+      }
+    },
+    {
+      "id": "Article 34",
+      "title": "Communication of Personal Data Breach to Data Subject",
+      "description": "When breach is likely to result in high risk to rights and freedoms, controller shall communicate to data subject",
+      "category": "Breach Notification",
+      "mappings": {
+        "SOC2": ["CC7.4"],
+        "ISO27001": ["A.16.1.5"],
+        "NIST_CSF": ["RS.CO-3"]
+      }
+    },
+    {
+      "id": "Article 35",
+      "title": "Data Protection Impact Assessment",
+      "description": "Controller shall carry out impact assessment for processing likely to result in high risk",
+      "category": "Risk Assessment",
+      "mappings": {
+        "SOC2": ["CC3.1", "CC3.2"],
+        "ISO27001": ["A.6.1.2"],
+        "NIST_CSF": ["ID.RA-1", "ID.RA-2"]
+      }
+    },
+    {
+      "id": "Article 37",
+      "title": "Designation of Data Protection Officer",
+      "description": "Controller and processor shall designate a DPO in certain circumstances",
+      "category": "Governance",
+      "mappings": {
+        "SOC2": ["CC1.3"],
+        "ISO27001": ["A.6.1.1"],
+        "NIST_CSF": ["ID.GV-2"]
+      }
+    },
+    {
+      "id": "Article 44",
+      "title": "General Principle for Transfers",
+      "description": "Any transfer of personal data to third countries shall comply with GDPR conditions",
+      "category": "International Transfers",
+      "mappings": {
+        "SOC2": ["CC9.2"],
+        "ISO27001": ["A.15.1.2"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    }
+  ]
+}

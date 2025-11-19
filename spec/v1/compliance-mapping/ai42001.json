@@ -1,1 +1,289 @@
-{ "framework": "ISO42001", "controls": ["AI Governance"] }
+{
+  "$schema": "../cpx-schema.json",
+  "framework": {
+    "name": "ISO42001",
+    "version": "2023",
+    "description": "Artificial Intelligence Management System (AIMS) Standard",
+    "authority": "ISO/IEC"
+  },
+  "controls": [
+    {
+      "id": "4.1",
+      "title": "Understanding the Organization and its Context",
+      "description": "Determine external and internal issues relevant to AI systems purpose and strategic direction",
+      "category": "Context of the Organization",
+      "mappings": {
+        "ISO27001": ["A.6.1"],
+        "SOC2": ["CC3.1"],
+        "NIST_CSF": ["ID.BE-1", "ID.BE-2"]
+      }
+    },
+    {
+      "id": "4.2",
+      "title": "Understanding Needs and Expectations of Interested Parties",
+      "description": "Determine interested parties relevant to the AIMS including regulatory requirements and societal expectations",
+      "category": "Context of the Organization",
+      "mappings": {
+        "SOC2": ["CC2.3"],
+        "ISO27001": ["A.18.1"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    },
+    {
+      "id": "5.1",
+      "title": "Leadership and Commitment",
+      "description": "Top management shall demonstrate leadership and commitment to AI governance including ethical considerations",
+      "category": "Leadership",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC1.2"],
+        "ISO27001": ["A.5.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "5.2",
+      "title": "AI Policy",
+      "description": "Establish AI policy addressing responsible AI development, deployment, and use",
+      "category": "Leadership",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC2.1"],
+        "ISO27001": ["A.5.1.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "6.1.1",
+      "title": "AI System Risk Assessment",
+      "description": "Identify and assess risks specific to AI systems including bias, fairness, and unintended consequences",
+      "category": "Planning",
+      "mappings": {
+        "SOC2": ["CC3.1", "CC3.2"],
+        "ISO27001": ["A.6.1.2"],
+        "GDPR": ["Article 35"],
+        "NIST_CSF": ["ID.RA-1", "ID.RA-2"]
+      }
+    },
+    {
+      "id": "6.1.2",
+      "title": "AI System Impact Assessment",
+      "description": "Assess potential impacts of AI systems on individuals, groups, and society",
+      "category": "Planning",
+      "mappings": {
+        "SOC2": ["CC3.2"],
+        "GDPR": ["Article 35"],
+        "NIST_CSF": ["ID.RA-3", "ID.RA-4"]
+      }
+    },
+    {
+      "id": "6.2",
+      "title": "AI Objectives and Planning",
+      "description": "Establish measurable AI objectives consistent with AI policy and ethical requirements",
+      "category": "Planning",
+      "mappings": {
+        "SOC2": ["CC3.1"],
+        "ISO27001": ["A.6.1.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "7.2",
+      "title": "Competence",
+      "description": "Ensure persons working with AI systems have necessary competence including AI ethics and responsible AI",
+      "category": "Support",
+      "mappings": {
+        "SOC2": ["CC1.4"],
+        "ISO27001": ["A.7.2.2"],
+        "NIST_CSF": ["PR.AT-1", "PR.AT-2"]
+      }
+    },
+    {
+      "id": "7.4",
+      "title": "Communication",
+      "description": "Determine communications relevant to AI systems including transparency about AI use",
+      "category": "Support",
+      "mappings": {
+        "SOC2": ["CC2.2"],
+        "GDPR": ["Article 12", "Article 13"],
+        "NIST_CSF": ["PR.AT-1"]
+      }
+    },
+    {
+      "id": "8.2",
+      "title": "AI System Life Cycle Processes",
+      "description": "Plan, implement, and control processes for AI system life cycle including design, development, and deployment",
+      "category": "Operation",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.14.2"],
+        "NIST_CSF": ["PR.IP-2", "PR.IP-3"]
+      }
+    },
+    {
+      "id": "8.3",
+      "title": "Data for AI Systems",
+      "description": "Manage data used by AI systems including data quality, provenance, and bias mitigation",
+      "category": "Operation",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC6.5"],
+        "ISO27001": ["A.8.2"],
+        "GDPR": ["Article 5"],
+        "NIST_CSF": ["PR.DS-1", "PR.DS-5"]
+      }
+    },
+    {
+      "id": "8.4",
+      "title": "AI Model Management",
+      "description": "Establish processes for AI model development, validation, versioning, and retirement",
+      "category": "Operation",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.12.1.2"],
+        "NIST_CSF": ["PR.IP-1", "PR.IP-3"]
+      }
+    },
+    {
+      "id": "8.5",
+      "title": "AI System Verification and Validation",
+      "description": "Verify and validate AI systems meet specified requirements and intended purpose",
+      "category": "Operation",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.14.2.8", "A.14.2.9"],
+        "NIST_CSF": ["PR.IP-2"]
+      }
+    },
+    {
+      "id": "9.1.1",
+      "title": "Monitoring AI System Performance",
+      "description": "Monitor and measure AI system performance including accuracy, fairness, and drift",
+      "category": "Performance Evaluation",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC7.1"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["DE.CM-1", "DE.CM-7"]
+      }
+    },
+    {
+      "id": "9.1.2",
+      "title": "AI System Audit and Assessment",
+      "description": "Conduct audits and assessments of AI systems for compliance with objectives and ethical requirements",
+      "category": "Performance Evaluation",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC4.2"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["ID.GV-4", "DE.DP-5"]
+      }
+    },
+    {
+      "id": "9.2",
+      "title": "Internal Audit",
+      "description": "Conduct internal audits to ensure AIMS conforms to requirements and is effectively implemented",
+      "category": "Performance Evaluation",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC4.2"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["ID.GV-4"]
+      }
+    },
+    {
+      "id": "10.1",
+      "title": "Nonconformity and Corrective Action",
+      "description": "Address nonconformities in AI systems including unintended behaviors and ethical violations",
+      "category": "Improvement",
+      "mappings": {
+        "SOC2": ["CC4.2", "CC7.5"],
+        "ISO27001": ["A.16.1.6"],
+        "NIST_CSF": ["RS.IM-1", "RS.IM-2"]
+      }
+    },
+    {
+      "id": "10.2",
+      "title": "Continual Improvement",
+      "description": "Continually improve the AIMS including AI system fairness, transparency, and accountability",
+      "category": "Improvement",
+      "mappings": {
+        "SOC2": ["CC4.2"],
+        "ISO27001": ["A.18.2.1"],
+        "NIST_CSF": ["PR.IP-7", "RS.IM-2"]
+      }
+    },
+    {
+      "id": "A.2",
+      "title": "AI Policies",
+      "description": "Establish and communicate policies for responsible AI including ethical use and societal impact",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC2.1"],
+        "ISO27001": ["A.5.1.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "A.3",
+      "title": "Internal Organization",
+      "description": "Define roles and responsibilities for AI governance including ethics committees",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC1.3"],
+        "ISO27001": ["A.6.1.1"],
+        "NIST_CSF": ["ID.GV-2"]
+      }
+    },
+    {
+      "id": "A.5",
+      "title": "Resources for AI Systems",
+      "description": "Manage resources for AI systems including computing, data, and specialized expertise",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC1.3"],
+        "ISO27001": ["A.8.1"],
+        "NIST_CSF": ["ID.AM-1", "ID.AM-2"]
+      }
+    },
+    {
+      "id": "A.6",
+      "title": "Assessing Impacts of AI Systems",
+      "description": "Assess and address potential negative impacts of AI systems before and during operation",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC3.2"],
+        "GDPR": ["Article 35"],
+        "NIST_CSF": ["ID.RA-4", "ID.RA-5"]
+      }
+    },
+    {
+      "id": "A.7",
+      "title": "AI System Life Cycle",
+      "description": "Manage AI system throughout its life cycle with appropriate governance at each stage",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "ISO27001": ["A.14.1", "A.14.2"],
+        "NIST_CSF": ["PR.IP-2"]
+      }
+    },
+    {
+      "id": "A.8",
+      "title": "Data for AI Systems",
+      "description": "Ensure data quality, appropriateness, and bias mitigation for AI systems",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC2.1"],
+        "ISO27001": ["A.8.2"],
+        "GDPR": ["Article 5"],
+        "NIST_CSF": ["PR.DS-5"]
+      }
+    },
+    {
+      "id": "A.10",
+      "title": "Third-Party and Customer Relationships",
+      "description": "Manage third-party AI components and customer use of AI systems responsibly",
+      "category": "Annex A Controls",
+      "mappings": {
+        "SOC2": ["CC9.2"],
+        "ISO27001": ["A.15.1", "A.15.2"],
+        "NIST_CSF": ["ID.SC-1", "ID.SC-3"]
+      }
+    }
+  ]
+}

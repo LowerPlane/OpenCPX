@@ -1,1 +1,208 @@
-{ "framework": "ISO27001", "controls": ["A.5", "A.6"] }
+{
+  "$schema": "../cpx-schema.json",
+  "framework": {
+    "name": "ISO27001",
+    "version": "2022",
+    "description": "Information Security Management System (ISMS) Standard",
+    "authority": "ISO/IEC"
+  },
+  "controls": [
+    {
+      "id": "A.5.1",
+      "title": "Policies for Information Security",
+      "description": "Management direction for information security in accordance with business requirements and relevant laws",
+      "category": "Information Security Policies",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC2.1"],
+        "NIST_CSF": ["ID.GV-1"]
+      }
+    },
+    {
+      "id": "A.5.2",
+      "title": "Information Security Roles and Responsibilities",
+      "description": "All information security responsibilities should be defined and allocated",
+      "category": "Information Security Policies",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC1.3"],
+        "NIST_CSF": ["ID.GV-2", "ID.AM-6"]
+      }
+    },
+    {
+      "id": "A.6.1",
+      "title": "Internal Organization",
+      "description": "Management framework to initiate and control implementation of information security within the organization",
+      "category": "Organization of Information Security",
+      "mappings": {
+        "SOC2": ["CC1.2", "CC1.3"],
+        "NIST_CSF": ["ID.GV-1", "ID.GV-2"]
+      }
+    },
+    {
+      "id": "A.6.2",
+      "title": "Mobile Devices and Teleworking",
+      "description": "Security policies and measures for mobile device usage and teleworking",
+      "category": "Organization of Information Security",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.7"],
+        "NIST_CSF": ["PR.AC-3"]
+      }
+    },
+    {
+      "id": "A.7.1",
+      "title": "Prior to Employment",
+      "description": "Background verification and terms and conditions of employment",
+      "category": "Human Resource Security",
+      "mappings": {
+        "SOC2": ["CC1.4"],
+        "NIST_CSF": ["PR.IP-11"]
+      }
+    },
+    {
+      "id": "A.7.2",
+      "title": "During Employment",
+      "description": "Management responsibilities, awareness, education, and training",
+      "category": "Human Resource Security",
+      "mappings": {
+        "SOC2": ["CC1.1", "CC1.4", "CC2.2"],
+        "NIST_CSF": ["PR.AT-1", "PR.AT-2"]
+      }
+    },
+    {
+      "id": "A.8.1",
+      "title": "Responsibility for Assets",
+      "description": "Inventory and ownership of assets, acceptable use, and return of assets",
+      "category": "Asset Management",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC6.1"],
+        "NIST_CSF": ["ID.AM-1", "ID.AM-2"]
+      }
+    },
+    {
+      "id": "A.8.2",
+      "title": "Information Classification",
+      "description": "Classification of information and labeling and handling of information",
+      "category": "Asset Management",
+      "mappings": {
+        "SOC2": ["CC2.1", "CC6.5"],
+        "NIST_CSF": ["ID.AM-5", "PR.DS-5"]
+      }
+    },
+    {
+      "id": "A.9.1",
+      "title": "Business Requirements of Access Control",
+      "description": "Access control policy and access to networks and network services",
+      "category": "Access Control",
+      "mappings": {
+        "SOC2": ["CC6.1"],
+        "HIPAA": ["164.312(a)(1)"],
+        "NIST_CSF": ["PR.AC-1", "PR.AC-3"]
+      }
+    },
+    {
+      "id": "A.9.2",
+      "title": "User Access Management",
+      "description": "User registration, access provisioning, privilege management, and access reviews",
+      "category": "Access Control",
+      "mappings": {
+        "SOC2": ["CC6.2", "CC6.3"],
+        "HIPAA": ["164.312(a)(2)(i)"],
+        "NIST_CSF": ["PR.AC-1", "PR.AC-4"]
+      }
+    },
+    {
+      "id": "A.9.4",
+      "title": "System and Application Access Control",
+      "description": "Information access restriction, secure log-on procedures, and password management",
+      "category": "Access Control",
+      "mappings": {
+        "SOC2": ["CC6.1", "CC6.6"],
+        "HIPAA": ["164.312(d)"],
+        "NIST_CSF": ["PR.AC-7"]
+      }
+    },
+    {
+      "id": "A.12.1",
+      "title": "Operational Procedures and Responsibilities",
+      "description": "Documented operating procedures, change management, and capacity management",
+      "category": "Operations Security",
+      "mappings": {
+        "SOC2": ["CC7.1", "CC8.1"],
+        "NIST_CSF": ["PR.IP-1", "PR.IP-3"]
+      }
+    },
+    {
+      "id": "A.12.4",
+      "title": "Logging and Monitoring",
+      "description": "Event logging, protection of log information, and administrator logs",
+      "category": "Operations Security",
+      "mappings": {
+        "SOC2": ["CC7.1", "CC7.2"],
+        "HIPAA": ["164.312(b)"],
+        "NIST_CSF": ["PR.PT-1", "DE.CM-1"]
+      }
+    },
+    {
+      "id": "A.12.6",
+      "title": "Technical Vulnerability Management",
+      "description": "Management of technical vulnerabilities and restrictions on software installation",
+      "category": "Operations Security",
+      "mappings": {
+        "SOC2": ["CC3.2", "CC7.1"],
+        "NIST_CSF": ["ID.RA-1", "RS.MI-3"]
+      }
+    },
+    {
+      "id": "A.14.2",
+      "title": "Security in Development and Support Processes",
+      "description": "Secure development policy, change control procedures, and secure system engineering",
+      "category": "System Acquisition, Development and Maintenance",
+      "mappings": {
+        "SOC2": ["CC8.1"],
+        "NIST_CSF": ["PR.IP-2", "PR.IP-3"]
+      }
+    },
+    {
+      "id": "A.16.1",
+      "title": "Management of Information Security Incidents",
+      "description": "Responsibilities, reporting, assessment, and response to information security incidents",
+      "category": "Information Security Incident Management",
+      "mappings": {
+        "SOC2": ["CC7.3", "CC7.4"],
+        "HIPAA": ["164.308(a)(6)"],
+        "NIST_CSF": ["RS.RP-1", "RS.CO-1"]
+      }
+    },
+    {
+      "id": "A.17.1",
+      "title": "Information Security Continuity",
+      "description": "Planning, implementing, and verifying information security continuity",
+      "category": "Information Security Aspects of Business Continuity",
+      "mappings": {
+        "SOC2": ["CC9.1"],
+        "HIPAA": ["164.308(a)(7)"],
+        "NIST_CSF": ["PR.IP-9", "RC.RP-1"]
+      }
+    },
+    {
+      "id": "A.18.1",
+      "title": "Compliance with Legal and Contractual Requirements",
+      "description": "Identification of applicable legislation, intellectual property, and privacy",
+      "category": "Compliance",
+      "mappings": {
+        "SOC2": ["CC2.3"],
+        "GDPR": ["Article 5", "Article 6"],
+        "NIST_CSF": ["ID.GV-3"]
+      }
+    },
+    {
+      "id": "A.18.2",
+      "title": "Information Security Reviews",
+      "description": "Independent review and compliance with security policies and standards",
+      "category": "Compliance",
+      "mappings": {
+        "SOC2": ["CC4.1", "CC4.2"],
+        "NIST_CSF": ["ID.GV-4", "DE.DP-5"]
+      }
+    }
+  ]
+}
